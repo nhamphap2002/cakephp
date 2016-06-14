@@ -17,11 +17,21 @@ class ArticlesController extends AppController {
 
     public function initialize() {
         parent::initialize();
-
+        /*
+         * $this->viewBuilder()->layout('layout');
+         * Dung de load layout moi do chung ta dinh nghia src/Template/Layout/layout.ctp
+         */
+        $this->viewBuilder()->layout('layout');
+        /*
+         * End load
+         */
         $this->loadComponent('Flash'); // Include the FlashComponent
     }
 
     public function index() {
+        /*
+         * Thuc hien set gia tri cho bien articles
+         */
         $this->set('articles', $this->Articles->find('all'));
     }
 
@@ -56,15 +66,15 @@ class ArticlesController extends AppController {
 
         $this->set('article', $article);
     }
-    public function delete($id)
-{
-    $this->request->allowMethod(['post', 'delete']);
 
-    $article = $this->Articles->get($id);
-    if ($this->Articles->delete($article)) {
-        $this->Flash->success(__('The article with id: {0} has been deleted.', h($id)));
-        return $this->redirect(['action' => 'index']);
+    public function delete($id) {
+        $this->request->allowMethod(['post', 'delete']);
+
+        $article = $this->Articles->get($id);
+        if ($this->Articles->delete($article)) {
+            $this->Flash->success(__('The article with id: {0} has been deleted.', h($id)));
+            return $this->redirect(['action' => 'index']);
+        }
     }
-}
 
 }
