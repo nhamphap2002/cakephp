@@ -25,7 +25,7 @@ if (!Configure::read('debug')):
     throw new NotFoundException('Please replace src/Template/Pages/home.ctp with your own version.');
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = 'test';
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,7 +35,7 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     <title>
         <?= $cakeDescription ?>
     </title>
-    <?= $this->Html->meta('icon') ?>
+    
     <?= $this->Html->css('base.css') ?>
     <?= $this->Html->css('cake.css') ?>
 </head>
